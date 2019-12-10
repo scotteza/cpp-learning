@@ -1,0 +1,9 @@
+# Extensions
+*.exe
+*.ilk
+*.pdb
+*.vcxproj.user
+
+# Folders
+001 - Simple Console App/.vs/
+001 - Simple Console App/001 - Simple Console App/Debug/
