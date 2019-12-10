@@ -81,6 +81,20 @@ void PassPersonReferenceToAFunction()
     cout << p.Name << endl;
 }
 
+Person CreateAPersonAndReturnACopy(string name)
+{
+    Person p;
+    p.Name = name;
+    return p;
+}
+
+Person* CreateAPersonAndReturnAPointer(string name)
+{
+    Person *p = new Person;
+    p->Name = name;
+    return p;
+}
+
 int main()
 {
     /*
@@ -99,6 +113,23 @@ int main()
     cout << "Passing object references" << endl;
     cout << "----------------------------------------" << endl;
     PassPersonReferenceToAFunction();
+
+    cout << endl << endl;
+
+    cout << "----------------------------------------" << endl;
+    cout << "Creating a Person and returning a copy" << endl;
+    cout << "----------------------------------------" << endl;
+    Person personCopy = CreateAPersonAndReturnACopy("Bob 1");
+    cout << "Name of returned person: " << personCopy.Name << endl;
+
+    cout << endl << endl;
+
+    cout << "----------------------------------------" << endl;
+    cout << "Creating a Person and returning a pointer" << endl;
+    cout << "----------------------------------------" << endl;
+    Person* personFromPointer = CreateAPersonAndReturnAPointer("Bob 2");
+    cout << "Name of returned person: " << personFromPointer->Name << endl;
+    delete personFromPointer;
 
     cout << endl << endl;
     system("PAUSE");
