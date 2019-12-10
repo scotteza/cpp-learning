@@ -9,4 +9,6 @@ public:
     ~Person();
 
     string Name;
+    // Specifying int, long etc. width is a good idea
+    int32_t Age;
 };
