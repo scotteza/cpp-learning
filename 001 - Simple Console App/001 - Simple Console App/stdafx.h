@@ -1,9 +1,10 @@
 #pragma once
 
-#include <stdio.h>
+#include <cstdio>
 #include <iostream>
 #include <tchar.h>
 
 #include <string>
+#include <memory>
 
 using namespace std;

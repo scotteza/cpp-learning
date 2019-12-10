@@ -90,7 +90,14 @@ Person CreateAPersonAndReturnACopy(string name)
 
 Person* CreateAPersonAndReturnAPointer(string name)
 {
-    Person *p = new Person;
+    Person* p = new Person;
+    p->Name = name;
+    return p;
+}
+
+unique_ptr<Person> CreateAUniquePointerToAPerson(string name)
+{
+    unique_ptr<Person> p = make_unique < Person >();
     p->Name = name;
     return p;
 }
@@ -130,6 +137,14 @@ int main()
     Person* personFromPointer = CreateAPersonAndReturnAPointer("Bob 2");
     cout << "Name of returned person: " << personFromPointer->Name << endl;
     delete personFromPointer;
+
+    cout << endl << endl;
+
+    cout << "----------------------------------------" << endl;
+    cout << "Creating a unique_ptr to a Person" << endl;
+    cout << "----------------------------------------" << endl;
+    unique_ptr<Person> uniquePointerToAPerson = CreateAUniquePointerToAPerson("Bob 3");
+    cout << "Name of returned person: " << uniquePointerToAPerson->Name << endl;
 
     cout << endl << endl;
     system("PAUSE");
