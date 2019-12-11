@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include "../StaticLib/Mathematics.h"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ int main()
 
     int x = 1;
     int y = Add1(x);
-
+    
     // This will fail as it substitutes values in to the macro
     // So, MUL(2, 3 + 1) will get substituted for 2 * 3 + 1
     // assert(MUL(2, 3 + 1) == 8);
@@ -29,6 +30,8 @@ int main()
     cout << "Hello, C++" << endl;
 
     Foo();
+
+    cout << "20 + 22 = " << Add(20, 22);
 
     getchar();
 
