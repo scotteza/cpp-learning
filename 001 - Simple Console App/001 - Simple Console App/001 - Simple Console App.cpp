@@ -1,3 +1,5 @@
+// This code is based on the video found here: https://www.youtube.com/watch?v=gRxi1eCV4xI
+
 #include "stdafx.h"
 
 #include "Person.h"
