@@ -19,14 +19,7 @@ void Foo()
 
 void CallAnExternalLibrary()
 {
-    // Initialize a Fibonacci relation sequence.
-    fibonacci_init(1, 1);
-    // Write out the sequence values until overflow.
-    do {
-        cout << fibonacci_index() << ": " << fibonacci_current() << endl;
-    } while (fibonacci_next());
-    // Report count of values written before overflow.
-    cout << fibonacci_index() + 1 << " Fibonacci sequence values fit in an " << "unsigned 64-bit integer." << endl;
+    cout << "21 * 2 = " << Multiply(21, 2) << endl;
 }
 
 int main()
@@ -44,7 +37,7 @@ int main()
 
     Foo();
 
-    cout << "20 + 22 = " << Add(20, 22);
+    cout << "20 + 22 = " << Add(20, 22) << endl;
 
     CallAnExternalLibrary();
 
