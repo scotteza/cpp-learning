@@ -11,6 +11,8 @@ namespace life
 inline auto Add(int a, int b)-> int;
 auto Increment(int& a)-> void;
 
+void LearnAboutTheStackAndTheHeap();
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -51,6 +53,8 @@ int main(int argc, char* argv[])
 
     cout << endl << "Press return to exit." << endl;
 
+    LearnAboutTheStackAndTheHeap();
+
     getchar();
 
     return 0;
@@ -70,6 +74,26 @@ void SomethingElse()
 auto Increment(int &a)-> void
 {
     a++;
+}
+
+void LearnAboutTheStackAndTheHeap()
+{
+    // This will go on the stack
+    // And will be cleaned up when we exit this scope
+    // // But, remember stack size is limited
+    std::string s("hello");
+
+    // The "new" keyword puts an object on the heap
+    // And returns a pointer to that object
+    // This is not de-allocated when we exit this scope
+    // And so we will have a memory leak here
+    // Until we call "delete t"
+    std::string* t = new std::string("world");
+    delete t;
+
+    // How to remove an array from the heap
+    int* values = new int[128];
+    delete[] values;
 }
 
 inline auto Add(const int a, const int b)-> int
