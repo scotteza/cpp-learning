@@ -8,7 +8,7 @@ namespace life
     auto& ReferenceToMeaning = Meaning;
 }
 
-auto Add(int a, int b)-> int;
+inline auto Add(int a, int b)-> int;
 auto Increment(int& a)-> void;
 
 int main(int argc, char* argv[])
@@ -72,7 +72,7 @@ auto Increment(int &a)-> void
     a++;
 }
 
-auto Add(int a, int b)-> int
+inline auto Add(const int a, const int b)-> int
 {
     return a + b;
 }
