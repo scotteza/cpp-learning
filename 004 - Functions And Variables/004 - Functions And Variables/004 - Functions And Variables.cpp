@@ -8,6 +8,9 @@ namespace life
     auto& ReferenceToMeaning = Meaning;
 }
 
+auto Add(int a, int b)-> int;
+auto Increment(int& a)-> void;
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -34,6 +37,18 @@ int main(int argc, char* argv[])
         cout << "Argument " << i << ": " << argv[i] << endl;
     }
 
+    cout << endl;
+
+    cout << "1 + 2 = " << Add(1, 2) << endl;
+
+    cout << endl;
+
+    auto a = 41;
+    cout << "a = " << a << endl;
+    cout << "Adding 1 to a..." << endl;
+    Increment(a);
+    cout << "a = " << a << endl;
+
     cout << endl << "Press return to exit." << endl;
 
     getchar();
@@ -52,3 +67,12 @@ void SomethingElse()
     std::cout << "Something else";
 }
 
+auto Increment(int &a)-> void
+{
+    a++;
+}
+
+auto Add(int a, int b)-> int
+{
+    return a + b;
+}
