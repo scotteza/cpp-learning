@@ -69,6 +69,8 @@ void LearnAboutEnumerations();
 
 void LearnAboutUnions();
 
+void LearnAboutStructs();
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -81,6 +83,7 @@ int main(int argc, char* argv[])
     LearnAboutLambdaFunctions();
     LearnAboutEnumerations();
     LearnAboutUnions();
+    LearnAboutStructs();
 
     cout << endl << "Press return to exit." << endl;
     getchar();
@@ -180,6 +183,17 @@ void LearnAboutUnions()
 
     Data d;
     d.SomeFloat = 0.5f;
+}
+
+void LearnAboutStructs()
+{
+    struct Size
+    {
+        int Width;
+        int Height;
+    };
+
+    Size s{ 4,2 };
 }
 
 inline auto Add(const int a, const int b)-> int
