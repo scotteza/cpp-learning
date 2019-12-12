@@ -1,5 +1,5 @@
 #include "pch.h"
-using namespace std;
+//
 
 namespace life
 {
@@ -8,8 +8,10 @@ namespace life
     auto& ReferenceToMeaning = Meaning;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+    using namespace std;
+
     using life::Meaning;
 
     cout << "Hello World!" << endl;
@@ -24,9 +26,29 @@ int main()
     life::ReferenceToMeaning = 44;
     cout << "Meaning is now equal to " << Meaning << endl;
 
+    cout << endl;
+
+    cout << "Argument count: " << argc << endl;
+    for (int i = 0; i < argc; i++)
+    {
+        cout << "Argument " << i << ": " << argv[i] << endl;
+    }
+
     cout << endl << "Press return to exit." << endl;
 
     getchar();
 
     return 0;
 }
+
+void Something()
+{
+    using namespace std;
+    cout << "Something";
+}
+
+void SomethingElse()
+{
+    std::cout << "Something else";
+}
+
