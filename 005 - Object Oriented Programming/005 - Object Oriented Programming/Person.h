@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Address.h"
+
 using namespace std;
 
 class Person
@@ -13,6 +15,11 @@ public:
     int Age;
     string Name;
     int Sex;
+    Address *HomeAddress;
+
+    Person(int age, string name, int sex);
+    Person(int age, string name, int sex, int houseNumber, string streetName, string city);
+    ~Person();
 
     void Greet() const;
 

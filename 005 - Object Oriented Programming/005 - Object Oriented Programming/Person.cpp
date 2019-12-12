@@ -1,12 +1,44 @@
 #include "pch.h"
-
 #include "Person.h"
+
+using namespace  std;
+
+Person::Person(const int age, const string name, const int sex)
+    : Age(age), Name(name), Sex(sex)
+{
+    HomeAddress = nullptr;
+}
+
+Person::Person(const int age, const string name, const int sex, const int houseNumber, const string streetName, const string city)
+    : Person(age, name, sex)
+{
+    if (HomeAddress != nullptr)
+    {
+        delete HomeAddress;
+    }
+
+    HomeAddress = new Address(houseNumber, streetName, city);
+}
+
+Person::~Person()
+{
+    if (HomeAddress != nullptr)
+    {
+        delete HomeAddress;
+        HomeAddress = nullptr;
+    }
+}
 
 void Person::Greet() const
 {
     cout << "My name is " << this->Name
         << " and I am " << this->Age << " years old."
         << endl;
+
+    if(HomeAddress)
+    {
+        cout << "I live at " << HomeAddress->HouseNumber << " " << HomeAddress->StreetName << ", " << HomeAddress->City << "." << endl;
+    }
 }
 
 int Person::GetLifeExpectancy()

@@ -1,5 +1,6 @@
 #include "pch.h"
 
+#include "Address.h"
 #include "Person.h"
 
 using namespace std;
@@ -7,26 +8,28 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     // A person on the stack
-    Person p1;
-    p1.Name = "Bob Smith";
-    p1.Age = 30;
-    p1.Sex = Person::Male;
-
+    const Person p1(30, "Bob Smith", Person::Male);
     p1.Greet();
+    cout << endl;
 
     // A person on the heap
-    auto p2 = new Person;
-    p2->Name = "Jane Smith";
-    p2->Age = 33;
-    p2->Sex = Person::Female;
-
-    auto lifeExpectancy = Person::GetLifeExpectancy();
-    cout << "Life expectancy = " << lifeExpectancy << " years." << endl;
-
+    const auto p2 = new Person(33, "Jane Smith", Person::Female);
     p2->Greet();
-
     delete p2;
+    cout << endl;
 
+    const auto p3 = new Person(21, "Jack Jones", Person::Male);
+    auto* address = new Address(123, "Oxford Street", "London");
+    p3->HomeAddress = address;
+    p3->Greet();
+    cout << endl;
+
+    // Fetch a static member from the Person class
+    const auto lifeExpectancy = Person::GetLifeExpectancy();
+    cout << "Life expectancy = " << lifeExpectancy << " years." << endl;
+    cout << endl;
+
+    // Pause and exit
     cout << endl << "Press return to exit." << endl;
     getchar();
 
