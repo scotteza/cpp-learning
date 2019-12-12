@@ -65,6 +65,8 @@ void LearnAboutCallingFunctions()
     cout << "1 + 2 = " << Add(1, 2) << endl;
 }
 
+void LearnAboutEnumerations();
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -75,6 +77,7 @@ int main(int argc, char* argv[])
     LearnAboutPassingParametersAsReferences();
     LearnAboutTheStackAndTheHeap();
     LearnAboutLambdaFunctions();
+    LearnAboutEnumerations();
 
     cout << endl << "Press return to exit." << endl;
     getchar();
@@ -137,6 +140,29 @@ void LearnAboutLambdaFunctions()
     y = 100;
     // Note the result here if you change the lambda to take in "y" instead of "&y"
     cout << "4 + y = " << increaseByY(4) << endl;
+}
+
+void LearnAboutEnumerations()
+{
+    enum Color
+    {
+        Red,
+        Green,
+        Blue
+    };
+
+    enum class Color2
+    {
+        Red,
+        Green,
+        Blue
+    };
+
+    auto c = Color::Red;
+
+    Color2 c2 = Color2::Blue;
+    // Can't do thjis
+    // int j = c2;
 }
 
 inline auto Add(const int a, const int b)-> int
