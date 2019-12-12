@@ -67,6 +67,8 @@ void LearnAboutCallingFunctions()
 
 void LearnAboutEnumerations();
 
+void LearnAboutUnions();
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -78,6 +80,7 @@ int main(int argc, char* argv[])
     LearnAboutTheStackAndTheHeap();
     LearnAboutLambdaFunctions();
     LearnAboutEnumerations();
+    LearnAboutUnions();
 
     cout << endl << "Press return to exit." << endl;
     getchar();
@@ -96,7 +99,7 @@ void SomethingElse()
     std::cout << "Something else";
 }
 
-auto Increment(int &a)-> void
+auto Increment(int& a)-> void
 {
     a++;
 }
@@ -151,18 +154,32 @@ void LearnAboutEnumerations()
         Blue
     };
 
-    enum class Color2
+    enum class Color2 : short
     {
-        Red,
-        Green,
-        Blue
+        Red = 1,
+        Green = 2,
+        Blue = 27
     };
 
     auto c = Color::Red;
 
-    Color2 c2 = Color2::Blue;
+    auto c2 = Color2::Blue;
     // Can't do thjis
     // int j = c2;
+}
+
+// A union is a user-defined type in which all members share the same memory location (MSDN)
+void LearnAboutUnions()
+{
+    union Data
+    {
+        int SomeInt;
+        float SomeFloat;
+        char* SomeText;
+    };
+
+    Data d;
+    d.SomeFloat = 0.5f;
 }
 
 inline auto Add(const int a, const int b)-> int
