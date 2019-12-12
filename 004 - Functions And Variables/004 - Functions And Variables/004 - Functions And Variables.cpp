@@ -1,4 +1,6 @@
 #include "pch.h"
+#include <vector>
+
 //
 
 namespace life
@@ -71,6 +73,8 @@ void LearnAboutUnions();
 
 void LearnAboutStructs();
 
+void LearnAboutIterating();
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -84,6 +88,7 @@ int main(int argc, char* argv[])
     LearnAboutEnumerations();
     LearnAboutUnions();
     LearnAboutStructs();
+    LearnAboutIterating();
 
     cout << endl << "Press return to exit." << endl;
     getchar();
@@ -141,6 +146,7 @@ void LearnAboutLambdaFunctions()
     // [&] = capture everything by reference
     // [x, &y] = capture x by value and y by reference
     // [&, z] = capture everything by reference, but z by value
+    // // The brackets are called a "capture list"
     auto increaseByY = [&y](int z) {return z + y; };
     cout << "4 + y = " << increaseByY(4) << endl;
     y = 100;
@@ -167,7 +173,7 @@ void LearnAboutEnumerations()
     auto c = Color::Red;
 
     auto c2 = Color2::Blue;
-    // Can't do thjis
+    // Can't do this
     // int j = c2;
 }
 
@@ -194,6 +200,66 @@ void LearnAboutStructs()
     };
 
     Size s{ 4,2 };
+}
+
+void LearnAboutIterating()
+{
+    using namespace  std;
+
+    int a[]{ 1,2,3,4 };
+
+    // Traditional for loop
+    for (auto i = 0; i < 4; i++)
+    {
+        cout << a[i] << "\t";
+    }
+    cout << endl;
+
+    // Fancy modern C++ for loop
+    for (auto i : a)
+    {
+        cout << i << "\t";
+    }
+    cout << endl;
+
+    // Loop using pointer arithmetic
+    for (int* p = a, *e = a + 4; p != e; ++p)
+    {
+        cout << *p << "\t";
+    }
+    cout << endl;
+
+
+    // Pointer to the start of the array
+    auto beginningOfArray = begin(a);
+    // Pointer to the end of the array
+    const auto endOfArray = end(a);
+    for (; beginningOfArray != endOfArray; beginningOfArray++)
+    {
+        cout << *beginningOfArray << "\t";
+    }
+    cout << endl;
+
+
+
+
+
+    vector<int> v{ 5,6,7,8 };
+    // This gives us an iterator
+    auto bv = begin(v);
+    // This gives us the same thing
+    auto bv2 = v.begin();
+
+    // Constant iterator (cannot set the pointer value)
+    // So you cannot go *vectorConstIterator = 3;
+    auto vectorConstIterator = v.cbegin();
+
+    // Get the reverse beginning iterator and print
+    for (auto i = v.rbegin(); i != v.rend(); ++i)
+    {
+        cout << *i << "\t";
+    }
+    cout << endl;
 }
 
 inline auto Add(const int a, const int b)-> int
