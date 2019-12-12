@@ -13,7 +13,9 @@ auto Increment(int& a)-> void;
 
 void LearnAboutTheStackAndTheHeap();
 
-int main(int argc, char* argv[])
+void LearnAboutLambdaFunctions();
+
+void LearnAboutNamespacesAndTheirScoping()
 {
     using namespace std;
 
@@ -30,6 +32,11 @@ int main(int argc, char* argv[])
     cout << "Changing the value of Meaning using a reference..." << endl;
     life::ReferenceToMeaning = 44;
     cout << "Meaning is now equal to " << Meaning << endl;
+}
+
+void LearnAboutArguments(int argc, char** argv)
+{
+    using namespace std;
 
     cout << endl;
 
@@ -38,23 +45,38 @@ int main(int argc, char* argv[])
     {
         cout << "Argument " << i << ": " << argv[i] << endl;
     }
+}
 
-    cout << endl;
-
-    cout << "1 + 2 = " << Add(1, 2) << endl;
-
-    cout << endl;
+void LearnAboutPassingParametersAsReferences()
+{
+    using namespace std;
 
     auto a = 41;
-    cout << "a = " << a << endl;
-    cout << "Adding 1 to a..." << endl;
+    std::cout << "a = " << a << endl;
+    std::cout << "Adding 1 to a..." << endl;
     Increment(a);
-    cout << "a = " << a << endl;
+    std::cout << "a = " << a << endl;
+}
+
+void LearnAboutCallingFunctions()
+{
+    using namespace std;
+
+    cout << "1 + 2 = " << Add(1, 2) << endl;
+}
+
+int main(int argc, char* argv[])
+{
+    using namespace std;
+
+    LearnAboutNamespacesAndTheirScoping();
+    LearnAboutArguments(argc, argv);
+    LearnAboutCallingFunctions();
+    LearnAboutPassingParametersAsReferences();
+    LearnAboutTheStackAndTheHeap();
+    LearnAboutLambdaFunctions();
 
     cout << endl << "Press return to exit." << endl;
-
-    LearnAboutTheStackAndTheHeap();
-
     getchar();
 
     return 0;
@@ -94,6 +116,27 @@ void LearnAboutTheStackAndTheHeap()
     // How to remove an array from the heap
     int* values = new int[128];
     delete[] values;
+}
+
+void LearnAboutLambdaFunctions()
+{
+    using namespace std;
+
+    auto x = 4;
+    const auto doubleValue = [](int z) {return z * 2; };
+
+    cout << x << " * 2 = " << doubleValue(x) << endl;
+
+    int y = 5;
+    // [=] = capture everything by value. Pass it by value AT THE TIME THE LAMBDA IS CREATED
+    // [&] = capture everything by reference
+    // [x, &y] = capture x by value and y by reference
+    // [&, z] = capture everything by reference, but z by value
+    auto increaseByY = [&y](int z) {return z + y; };
+    cout << "4 + y = " << increaseByY(4) << endl;
+    y = 100;
+    // Note the result here if you change the lambda to take in "y" instead of "&y"
+    cout << "4 + y = " << increaseByY(4) << endl;
 }
 
 inline auto Add(const int a, const int b)-> int
