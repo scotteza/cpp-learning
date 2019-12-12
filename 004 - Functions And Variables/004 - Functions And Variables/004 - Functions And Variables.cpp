@@ -75,6 +75,8 @@ void LearnAboutStructs();
 
 void LearnAboutIterating();
 
+void PlayWithPointersAndReferences();
+
 int main(int argc, char* argv[])
 {
     using namespace std;
@@ -89,6 +91,7 @@ int main(int argc, char* argv[])
     LearnAboutUnions();
     LearnAboutStructs();
     LearnAboutIterating();
+    PlayWithPointersAndReferences();
 
     cout << endl << "Press return to exit." << endl;
     getchar();
@@ -260,6 +263,49 @@ void LearnAboutIterating()
         cout << *i << "\t";
     }
     cout << endl;
+}
+
+void PlayWithPointersAndReferences()
+{
+    using namespace  std;
+
+    cout << endl << endl;
+
+    int a = 7;
+    int b = 21;
+
+    cout << "a currently points to the value " << a << endl;
+    cout << "b currently points to the value " << b << endl;
+
+    int* ptr = nullptr;
+    // This would give memory address "00000000"
+    // cout << "ptr currently points to memory address " << ptr << endl;
+    // This would throw an exception: Exception thrown: read access violation. ptr was nullptr.
+    // cout << "ptr currently points to the value " << *ptr << endl;
+
+    ptr = &a;
+    cout << "ptr currently points to memory address " << ptr << endl;
+    cout << "ptr currently points to the value " << *ptr << endl;
+
+    ptr = &b;
+    cout << "ptr currently points to memory address " << ptr << endl;
+    cout << "ptr currently points to the value " << *ptr << endl;
+
+    int& ref = a;
+    cout << "ref currently points to the value " << ref << endl;
+    // Note this line of code, you cannot change what "ref" refers to.
+    // Doing the below changes the value of the thing it refers to
+    ref = b;
+    cout << "a currently points to the value " << a << endl;
+    cout << "b currently points to the value " << b << endl;
+
+    // Reset values
+    a = 7;
+    b = 21;
+
+    ptr = &ref;
+    cout << "ptr currently points to memory address " << ptr << endl;
+    cout << "ptr currently points to the value " << *ptr << endl;
 }
 
 inline auto Add(const int a, const int b)-> int
