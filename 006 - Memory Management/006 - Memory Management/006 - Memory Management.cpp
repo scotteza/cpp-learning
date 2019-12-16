@@ -124,7 +124,7 @@ void moveRValue()
 
 unique_ptr<Address> CreateAddress(string const& city)
 {
-    return unique_ptr<Address>(new Address(city));
+    return make_unique<Address>(city);
 }
 
 void LearnAboutUniquePointers()
