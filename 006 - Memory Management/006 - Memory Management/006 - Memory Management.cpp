@@ -15,12 +15,12 @@ public:
     Address(const string& city)
         : city(city)
     {
-        cout << "Address created." << endl;
+        cout << city << " created." << endl;
     }
 
     ~Address()
     {
-        cout << "Address destroyed." << endl;
+        cout << city << " destroyed." << endl;
     }
 };
 
@@ -46,8 +46,8 @@ class Person2
 {
 private:
     // Now anything outside the class cannot hit these constructors and destructors
-    Person2() {}
-    Person2(const Person2& _) {}
+    Person2() { referenceCount = 0; }
+    Person2(const Person2& _) { referenceCount = 0; }
     ~Person2() {}
     int referenceCount;
 
@@ -122,17 +122,31 @@ void moveRValue()
 
 }
 
+unique_ptr<Address> CreateAddress(string const& city)
+{
+    return unique_ptr<Address>(new Address(city));
+}
+
+void LearnAboutUniquePointers()
+{
+    auto a = CreateAddress("Paris");
+}
+
 int main()
 {
+    /*
     Address* a;
 
     {
         Person p("New York");
         a = p.address;
     }
+    */
 
     // "p" is out of scope here, so we get an exception
-    cout << a->city << endl;
+    // cout << a->city << endl;
+
+    LearnAboutUniquePointers();
 
     getchar();
     return 0;
