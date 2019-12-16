@@ -29,6 +29,11 @@ int main(int argc, char* argv[])
     cout << "Life expectancy = " << lifeExpectancy << " years." << endl;
     cout << endl;
 
+    // Copy constructor
+    Person p4(*p3);
+    p3->HomeAddress->City = "A new city";
+    cout << "p4 address = " << p4.HomeAddress->City << "." << endl;
+
     // Pause and exit
     cout << endl << "Press return to exit." << endl;
     getchar();
