@@ -132,6 +132,28 @@ void LearnAboutUniquePointers()
     auto a = CreateAddress("Paris");
 }
 
+
+
+
+
+class Person3
+{
+public:
+    shared_ptr<Address> address;
+
+    Person3(string const& city)
+    {
+        address = make_shared<Address>(city);
+        cout << "Created person." << endl;
+    }
+
+    ~Person3()
+    {
+        cout << "Destroyed person." << endl;
+        // No need for a delete here
+    }
+};
+
 int main()
 {
     /*
@@ -146,7 +168,15 @@ int main()
     // "p" is out of scope here, so we get an exception
     // cout << a->city << endl;
 
-    LearnAboutUniquePointers();
+    // LearnAboutUniquePointers();
+
+    shared_ptr<Address> addressSharedPointer;
+    {
+        Person3 p("Paris");
+        addressSharedPointer = p.address;
+    }
+
+    cout << addressSharedPointer->city << endl;
 
     getchar();
     return 0;
