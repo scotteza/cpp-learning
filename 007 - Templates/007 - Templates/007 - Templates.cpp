@@ -18,17 +18,17 @@ TripleInt SumAndProductAndAverage(int a, int b, int c)
 
 void LearnAboutConsumingTemplates()
 {
-    int a = 2;
-    int b = 3;
+    const auto a = 2;
+    const auto b = 3;
 
-    auto result = SumAndProduct(a, b);
+    const auto result = SumAndProduct(a, b);
 
     cout << "a = " << a << endl;
     cout << "b = " << b << endl;
     cout << "Sum = " << result.first << endl;
     cout << "Product = " << result.second << endl;
 
-    int c = 4;
+    const auto c = 4;
 
     auto result2 = SumAndProductAndAverage(a, b, c);
 
