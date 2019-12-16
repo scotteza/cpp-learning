@@ -2,6 +2,7 @@
 
 #include "Address.h"
 #include "Person.h"
+#include "Employee.h"
 
 using namespace std;
 
@@ -34,6 +35,27 @@ int main(int argc, char* argv[])
     p3->HomeAddress->City = "A new city";
     cout << "p3 address = " << p3->HomeAddress->City << "." << endl;
     cout << "p4 address = " << p4.HomeAddress->City << "." << endl;
+
+    Person p5 = *p3;
+    cout << endl;
+
+    // Inheritance
+    Employee employee(33, "Bob", Person::Male, "Development");
+
+    auto printPersonName = [](const Person& p)
+    {
+        cout << p.Name << endl;
+    };
+    printPersonName(employee);
+
+    // Create a person reference which comes from an employee
+    Person& somePerson = employee;
+
+    // Use static cast to convert an object to a child type when we are sure of its type
+    Employee& convertedFromAPerson = static_cast<Employee&>(somePerson);
+    cout << convertedFromAPerson.Department << endl;
+
+    cout << endl;
 
     // Pause and exit
     cout << endl << "Press return to exit." << endl;
