@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     // A person on the stack
-    const Person p1(30, "Bob Smith", Person::Male);
+    Person p1(30, "Bob Smith", Person::Male);
     p1.Greet();
     cout << endl;
 
@@ -55,6 +55,10 @@ int main(int argc, char* argv[])
     // Use static cast to convert an object to a child type when we are sure of its type
     Employee& convertedFromAPerson = static_cast<Employee&>(somePerson);
     cout << convertedFromAPerson.Department << endl;
+    cout << endl;
+
+    // Virtual functions
+    employee.Greet();
 
     cout << endl;
 

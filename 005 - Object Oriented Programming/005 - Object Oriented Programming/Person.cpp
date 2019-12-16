@@ -40,7 +40,7 @@ Person::~Person()
     }
 }
 
-void Person::Greet() const
+void Person::Greet()
 {
     cout << "My name is " << this->Name
         << " and I am " << this->Age << " years old."

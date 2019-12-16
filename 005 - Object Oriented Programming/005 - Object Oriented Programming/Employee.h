@@ -25,6 +25,9 @@ public:
 
     }
 
+    // Overrides
+    void Greet() override;
+
     // Fields
     string Department;
 };

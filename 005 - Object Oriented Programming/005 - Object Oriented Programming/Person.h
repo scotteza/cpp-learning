@@ -26,7 +26,7 @@ public:
     Person(const Person& p);
     ~Person();
 
-    void Greet() const;
+    virtual void Greet();
 
     static int GetLifeExpectancy();
 };
