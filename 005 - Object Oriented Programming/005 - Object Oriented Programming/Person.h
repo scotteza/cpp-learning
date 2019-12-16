@@ -19,6 +19,7 @@ public:
 
     Person(int age, string name, int sex);
     Person(int age, string name, int sex, int houseNumber, string streetName, string city);
+    Person(const Person& p);
     ~Person();
 
     void Greet() const;

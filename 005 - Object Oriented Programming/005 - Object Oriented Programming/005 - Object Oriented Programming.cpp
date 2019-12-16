@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
     // Copy constructor
     Person p4(*p3);
     p3->HomeAddress->City = "A new city";
+    cout << "p3 address = " << p3->HomeAddress->City << "." << endl;
     cout << "p4 address = " << p4.HomeAddress->City << "." << endl;
 
     // Pause and exit

@@ -20,6 +20,17 @@ Person::Person(const int age, const string name, const int sex, const int houseN
     HomeAddress = new Address(houseNumber, streetName, city);
 }
 
+Person::Person(const Person& p)
+    : Person(p.Age, p.Name, p.Sex)
+{
+    Address* a = p.HomeAddress;
+    HomeAddress = new Address(
+        a->HouseNumber,
+        a->StreetName,
+        a->City
+    );
+}
+
 Person::~Person()
 {
     if (HomeAddress != nullptr)
@@ -35,7 +46,7 @@ void Person::Greet() const
         << " and I am " << this->Age << " years old."
         << endl;
 
-    if(HomeAddress)
+    if (HomeAddress)
     {
         cout << "I live at " << HomeAddress->HouseNumber << " " << HomeAddress->StreetName << ", " << HomeAddress->City << "." << endl;
     }
