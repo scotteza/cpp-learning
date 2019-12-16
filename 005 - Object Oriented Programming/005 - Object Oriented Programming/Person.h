@@ -6,7 +6,11 @@ using namespace std;
 
 class Person
 {
+private:
     static int LifeExpectancy;
+
+protected:
+    int SocialSecurityNumber;
 
 public:
     const static int Female = 0;
@@ -15,7 +19,7 @@ public:
     int Age;
     string Name;
     int Sex;
-    Address *HomeAddress;
+    Address* HomeAddress;
 
     Person(int age, string name, int sex);
     Person(int age, string name, int sex, int houseNumber, string streetName, string city);

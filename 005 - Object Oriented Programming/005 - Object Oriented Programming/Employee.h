@@ -9,7 +9,10 @@
 class Employee :
     public Person
 {
-    int taxId;
+    friend class EmployeeFactory;
+
+private:
+    int TaxId;
 
 public:
 

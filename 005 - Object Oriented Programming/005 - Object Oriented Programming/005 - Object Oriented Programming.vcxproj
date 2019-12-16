@@ -158,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="EmployeeFactory.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>
