@@ -59,8 +59,31 @@ int main(int argc, char* argv[])
 
     // Virtual functions
     employee.Greet();
-
     cout << endl;
+
+    // Dynamic casting
+    Person aNewPerson(33, "The new guy", Person::Male);
+    try
+    {
+        Employee& employeeReference2 = dynamic_cast<Employee&>(aNewPerson);
+        cout << employeeReference2.Department;
+        cout << endl;
+    }
+    catch (const bad_cast & e)
+    {
+        cout << "Cannot cast this!" << endl;
+    }
+
+    Person* personPointer = &aNewPerson;
+    Employee* ep = dynamic_cast<Employee*>(personPointer);
+    if (ep)
+    {
+        cout << ep->Department << endl;
+    }
+    else
+    {
+        cout << "Failed to cast pointer!" << endl;
+    }
 
     // Pause and exit
     cout << endl << "Press return to exit." << endl;
