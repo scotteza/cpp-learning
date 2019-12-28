@@ -116,6 +116,25 @@ void LearnAboutTemplateFunctions()
     cout << endl;
 }
 
+
+
+
+typedef complex<double> CD;
+typedef Triple<CD, CD, CD> CDT;
+
+
+void LearnAboutTemplateSpecialization()
+{
+    CD a(2, 3);
+    CD b(3, 4);
+    CD c(4, 5);
+
+    auto result = SumProductAverage3(a, b, c);
+    cout << result.first << ", " << result.second << ", " << result.third << endl;
+
+    cout << endl;
+}
+
 int main()
 {
     LearnAboutConsumingTemplates();
@@ -123,6 +142,8 @@ int main()
     LearnAboutCreatingTemplateClasses();
 
     LearnAboutTemplateFunctions();
+
+    LearnAboutTemplateSpecialization();
 
     getchar();
     return 0;
