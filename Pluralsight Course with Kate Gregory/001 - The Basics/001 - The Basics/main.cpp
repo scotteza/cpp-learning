@@ -1,4 +1,4 @@
-#include "Person.h"
+#include "Tweeter.h"
 #include <iostream>
 
 using std::cout;
@@ -9,8 +9,8 @@ int main()
 {
     Person p1("Jane", "Smith", 123);
     {
-        // Braces here are to test how scope is handled here.
-        Person p2;
+        Tweeter t1("Bob", "Smith", 123, "@someone");
+        std::string name = t1.GetName();
     }
     cout << "After innermost block" << endl;
     string name = p1.GetName();
