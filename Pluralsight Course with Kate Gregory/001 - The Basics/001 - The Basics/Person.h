@@ -10,6 +10,7 @@ private:
     int ArbitraryNumber;
 public:
     Person(std::string firstName, std::string lastName, int arbitraryNumber);
-    Person() = default;
+    Person();
+    ~Person();
     std::string GetName();
 };
