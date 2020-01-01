@@ -1,15 +1,12 @@
-#include <iostream>
-#include <string>
+#include "Person.h"
 
 int main()
 {
-    std::cout << "Hello World!"
-        << std::endl << std::endl
-        << "Press [Enter] to exit."
-        << std::endl;
+    Person p1("Jane", "Smith", 123);
+    Person p2;
+    std::string name = p1.GetName();
 
-    std::string dummy;
-    std::getline(std::cin, dummy);
+    // int i = p1.ArbitraryNumber;
 
     return 0;
 }
