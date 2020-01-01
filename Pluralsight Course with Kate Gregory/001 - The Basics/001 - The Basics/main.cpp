@@ -1,5 +1,6 @@
 #include "Tweeter.h"
 #include <iostream>
+#include "Status.h"
 
 using std::cout;
 using std::endl;
@@ -16,6 +17,15 @@ int main()
     string name = p1.GetName();
 
     // int i = p1.ArbitraryNumber;
+
+    Status s = Pending;
+    s = Approved;
+
+    FileError fe = FileError::NotFound;
+    fe = FileError::Ok;
+
+    NetworkError ne = NetworkError::Disconnected;
+    ne = NetworkError::Ok;
 
     return 0;
 }
