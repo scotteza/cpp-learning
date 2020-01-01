@@ -1,3 +1,4 @@
+#include "Person.h"
 #include "Tweeter.h"
 #include <iostream>
 #include "Status.h"
