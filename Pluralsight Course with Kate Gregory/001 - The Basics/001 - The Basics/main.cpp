@@ -1,6 +1,9 @@
 #include "Person.h"
-
 #include <iostream>
+
+using std::cout;
+using std::endl;
+using std::string;
 
 int main()
 {
@@ -9,8 +12,8 @@ int main()
         // Braces here are to test how scope is handled here.
         Person p2;
     }
-    std::cout << "After innermost block" << std::endl;
-    std::string name = p1.GetName();
+    cout << "After innermost block" << endl;
+    string name = p1.GetName();
 
     // int i = p1.ArbitraryNumber;
 
