@@ -38,5 +38,6 @@ bool Person::operator<(const int i) const
 
 bool operator<(const int i, Person const& p)
 {
-    return i < p.GetNumber();
+    // return i < p.GetNumber();
+    return i < p.ArbitraryNumber;
 }

@@ -8,6 +8,8 @@ private:
     std::string FirstName;
     std::string LastName;
     int ArbitraryNumber;
+
+    friend bool operator<(int i, Person const& p);
 public:
     Person(std::string firstName, std::string lastName, int arbitraryNumber);
     Person();
